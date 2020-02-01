@@ -11,6 +11,7 @@
     <div class="container">
         <div class="col-12">
             <h1><?php echo $title ?></h1>
+            <h2><?php echo $another; ?></h2>
         </div>
     </div>
 </body>

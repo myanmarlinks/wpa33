@@ -5,6 +5,10 @@ function _indexController() {
 }
 
 function _blogController() {
+    $data = [
+        'title' => 'Myanmar Links',
+        "another" => 'Hello World!'
+    ];
    
-    load_view("blog");
+    load_view("blog", $data);
 }
