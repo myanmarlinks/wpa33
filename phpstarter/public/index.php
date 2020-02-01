@@ -21,7 +21,8 @@ if(empty($f_req)) {
 $controller = "_" . $page . "Controller";
 
 if(function_exists($controller)) {
-    $controller();
+    array_shift($f_req);
+    call_user_func_array($controller, $f_req);
 } else {
     echo "404!";
 }
