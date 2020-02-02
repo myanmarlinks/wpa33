@@ -1,7 +1,7 @@
 <?php
 
 function _indexController() {
-    load_view("index");
+    load_view("indexx");
 }
 
 function _blogController($value = null) {
@@ -12,8 +12,8 @@ function _blogController($value = null) {
         ];
     } else {
         $data = [
-            'title' => 'Myanmar Links',
-            "another" => 'Bar'
+            'title' => config_get("app.app_name"),
+            "another" => config_get("database.dbname")
         ];
     }
     
