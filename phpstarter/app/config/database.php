@@ -1,5 +1,8 @@
 <?php
 
 return [
-    "dbname"    => 'wpa33'
+    "dbhost" => "localhost:3306",
+    'dbusername' => 'root',
+    'dbpass'    => '',
+    'dbname'    => 'wpa33db'
 ];
