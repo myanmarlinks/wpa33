@@ -4,10 +4,10 @@ trait Sapian {
         echo "DANCE! <br>";
     }
 }
+trait Another {
+    public $constant = "123123123";
+}
 trait Test {
-    function __construct() {
-        echo "Test contruct! <br>";
-    }
     function test() {
         echo "TEST! <br>";
     }
@@ -19,11 +19,11 @@ abstract class Animal {
     }
 }
 class Cat extends Animal { 
-    use Sapian, Test;
+    use Sapian;
+    use Test;
+    use Another;
 }
-
 $cat = new Cat();
 $cat->dance();
 $cat->test();
-
 ?>
