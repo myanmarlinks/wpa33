@@ -4,10 +4,14 @@
             "wpa33/providers/"
         ],
         "files": [
-            "wpa33/helpers.php"
+            "wpa33/helpers.php",
+            "routes/web.php"
         ],
         "psr-4": {
             "App\\": "app/"
         }
+    },
+    "require": {
+        "monolog/monolog": "^2.0"
     }
 }
