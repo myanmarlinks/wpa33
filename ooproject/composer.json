@@ -1,0 +1,13 @@
+{
+    "autoload": {
+        "classmap": [
+            "wpa33/providers/"
+        ],
+        "files": [
+            "wpa33/helpers.php"
+        ],
+        "psr-4": {
+            "App\\": "app/"
+        }
+    }
+}
