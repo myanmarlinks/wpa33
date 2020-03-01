@@ -30,6 +30,8 @@ class DB extends PDO {
     }
 
     public function get() {
-        return $this->table_name;
+        $sql = "SELECT * FROM " . $this->table_name;
+        $result = $this->query($sql);
+        return $result->fetchAll(PDO::FETCH_CLASS);
     }
 }

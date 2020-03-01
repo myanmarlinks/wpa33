@@ -4,8 +4,9 @@ namespace App\Controllers;
 
 class HomeController {
     public function index() {
-        $students = \DB::table("students")->get();
-        dd($students, true);
+        $data = [
+            "students" => \DB::table("students")->get()
+        ];
         \View::make("home", $data);
     }
 }
