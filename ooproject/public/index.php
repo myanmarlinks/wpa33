@@ -1,5 +1,7 @@
 <?php
 
+use Wpa33\Application\Application;
+
 define("DD", realpath("../"));
 
 require DD . "/vendor/autoload.php";
@@ -17,6 +19,12 @@ if(empty($f_req)) {
 } else {
     $page = $f_req[0];
 }
+
+$calculator = new Calculator();
+$test = new Test();
+
+Application::add($calculator);
+Application::add($test);
 
 $routes = require DD . "/routes/web.php";
 

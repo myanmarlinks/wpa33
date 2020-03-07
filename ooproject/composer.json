@@ -8,7 +8,8 @@
             "routes/web.php"
         ],
         "psr-4": {
-            "App\\": "app/"
+            "App\\": "app/",
+            "Wpa33\\": "wpa33/src"
         }
     },
     "require": {
