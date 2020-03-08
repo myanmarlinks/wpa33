@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VUEJS</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="js/vue.js"></script>
+
+</head>
+<body>
+    <div id="app" class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1>{{ message }}</h1>
+                <button v-on:click="reverseMessage">Reverse</button>
+                <h2>{{ test }}</h2>
+                <h2 v-if="seen">How are you</h2>
+                <input v-model="message" /> 
+                <ol>
+                    <li v-for="todo in todos">
+                        {{ todo.text }}
+                    </li>
+                </ol> 
+            </div>
+        </div>
+    </div>    
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                message : "Hello VueJS",
+                test: "How are you",
+                seen: true,
+                todos: [
+                    { text: "Learn JavaScript" },
+                    { text: "Learn Vue" },
+                    { text: "Build something awesome"}
+                ]
+            },
+            methods: {
+                reverseMessage: function() {
+                    this.message = this.message
+                        .split("").reverse().join('')
+                }
+            }
+        })
+    </script>
+</body>
+</html>

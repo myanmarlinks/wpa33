@@ -3,26 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VUEJS</title>
+    <title>VueJS</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="js/vue.js"></script>
-
+    
 </head>
 <body>
     <div id="app" class="container">
-        <div class="row">
-            <div class="col-12">
-                <h1>{{ message }}</h1>
-                <h2>{{ test }}</h2>
+        <my-header v-bind:title="title"></my-header>
+        <div id="content" class="row">
+            <div id="menu" class="col-4">
+                <h2>Menu</h2>
+            </div>
+            <div id="body" class="8">
+                <h2>Body</h2>
             </div>
         </div>
-    </div>    
+        <div id="footer" class="row">
+            <div class="col-12">
+                <h1>Footer</h1>
+            </div>
+        </div>
+    </div>
     <script>
+        Vue.component('my-header', {
+            props: ["title"],
+            template: '<div id="header" class="row"><div class="col-12"><h1>{{ title }}</h1></div></div>'
+        });
         var app = new Vue({
             el: "#app",
             data: {
-                message : "Hello VueJS",
-                test: "How are you"
+                title: "Hello World"
             }
         })
     </script>

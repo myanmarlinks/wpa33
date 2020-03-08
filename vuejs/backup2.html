@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VUEJS COMPONENT</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="js/vue.js"></script>
+</head>
+<body>
+    <div id="app" class="container">
+        <div class="row">
+            <div class="col-12">
+                <ul>
+                    <todo-item
+                        v-for="item in gList"    
+                        v-bind:todo="item"
+                        v-bind:message="message"
+                        v-bind:key="item.id">
+                    </todo-item>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script>
+        Vue.component('todo-item', {
+            props: ['todo', 'message'],
+            template: '<li>{{ todo.text }} - {{ message }}</li>'
+        })
+        var app = new Vue({
+            el: "#app",
+            data: {
+                message: "Hello VuejS",
+                gList: [
+                    { id: 0, text: "Apple" },
+                    { id: 1, text: "Orange" },
+                    { id: 2, text: "Banana" }
+                ]
+            }
+        })
+    </script>
+</body>
+</html>
