@@ -3,40 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VueJS</title>
+    <title>TODO</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="js/vue.js"></script>
-    
 </head>
 <body>
     <div id="app" class="container">
-        <my-header v-bind:title="title"></my-header>
-        <div id="content" class="row">
-            <div id="menu" class="col-4">
-                <h2>Menu</h2>
-            </div>
-            <div id="body" class="8">
-                <h2>Body</h2>
-            </div>
-        </div>
-        <div id="footer" class="row">
-            <div class="col-12">
-                <h1>Footer</h1>
+        <div class="row">
+            <div class="col-6">
+                <h1>TODO</h1>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>id</th>
+                            <th>Task</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="todo in todos">
+                            <td>{{ todo.id }}</td>
+                            <td>{{ todo.task }}</td>
+                            <td><button v-on:click="doneTodo($index)" class="btn btn-success">Done</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="row">
+                    <div class="col-9">
+                        <input v-model="todo" type="text" class="form-control" />
+                    </div>
+                    <div class="col-3"><button v-on:click="addTodo" class="btn btn-primary">ADD</button></div>
+                </div>
+                </span>
+                
             </div>
         </div>
     </div>
     <script>
-        Vue.component('my-header', {
-            props: ["title"],
-            template: '<div id="header" class="row"><div class="col-12"><h1>{{ title }}</h1></div></div>'
-        });
         var app = new Vue({
             el: "#app",
             data: {
-                title: "Hello World"
+                todo: "",
+                todos: [
+                    { task: "to eat Pizza" },
+                    { task: "to eat Mala Shan Kaw"}
+                ]
+            },
+            methods: {
+                addTodo: function() {
+                    if(this.todo != "") {
+                        this.todos.push({ task: this.todo })
+                        this.todo = ""
+                    }
+                },
+                doneTodo: function(index) {
+                    this.todos.splice(index, 1)
+                }
             }
-        })
+        });
     </script>
 </body>
 </html>
